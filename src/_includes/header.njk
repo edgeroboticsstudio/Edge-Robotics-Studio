@@ -1,0 +1,26 @@
+<header>
+
+  <div class="logo-container">
+    <img src="{{ '/static/logo.png' | url }}" alt="Edge Robotics Studio" class="logo"/>
+  </div>
+
+  <nav>
+    <a href="{{ '/' | url }}" class="{% if page.url == '/' %}active{% endif %}">Home</a>
+    <a href="{{ '/services/' | url }}" class="{% if page.url == '/services/' %}active{% endif %}">Services</a>
+    <a href="{{ '/projects/' | url }}" class="{% if page.url == '/projects/' %}active{% endif %}">Projects</a>
+    <a href="{{ '/blog/' | url }}" class="{% if page.url == '/blog/' %}active{% endif %}">Blog</a>
+    <a href="{{ '/contact/' | url }}" class="{% if page.url == '/contact/' %}active{% endif %}">Contact</a>
+  </nav>
+
+  <div class="socials">
+    <a href="https://www.linkedin.com/company/edgeroboticsstudio">
+      <img src="{{ '/static/linkdin.png' | url }}" alt="LinkedIn"/>
+    </a>
+    <a href="https://youtube.com/@edge_robotics_studio?si=pvhXs8rDeXPNX9yU">
+      <img src="{{ '/static/youtube.png' | url }}" alt="YouTube"/>
+    </a>
+    <a href="mailto:edgeroboticsstudio@gmail.com">
+      <img src="{{ '/static/email.png' | url }}" alt="Email"/>
+    </a>
+  </div>
+</header>

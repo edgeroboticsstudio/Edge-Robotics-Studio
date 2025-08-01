@@ -1,0 +1,93 @@
+---
+layout: layout.njk
+title: Contact
+---
+
+<section style="background-color: #004D40; color: white; padding: 4rem 2rem; margin: 0;">
+  <div class="container">
+    
+    <form id="contact-form">
+      <label>Name*</label>
+      <input type="text" name="name" required />
+
+      <label>Subject*</label>
+      <input type="text" name="subject" required />
+
+      <label>Email*</label>
+      <input type="email" name="email" required />
+
+      <label>Message*</label>
+      <textarea name="message" rows="6" required></textarea>
+
+      <!-- reCAPTCHA checkbox -->
+      <div class="g-recaptcha" data-sitekey="6LcM64krAAAAAM184IJ584Pj0rFL6li_yrNOxqMG"></div>
+
+      <button type="submit">Submit</button>
+      <p id="form-status"></p>
+    </form>
+
+    <div class="info">
+      <h2>Contact</h2>
+      <p>Please use the contact form to get in touch.</p>
+      <p>Alternatively, send an e-mail to: 
+        <a href="mailto:edgeroboticsstudio@gmail.com">edgeroboticsstudio@gmail.com</a>
+      </p>
+    </div>
+
+    <!-- Fullscreen Loading Spinner -->
+    <div id="loading-overlay" style="
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background-color: rgba(255, 255, 255, 0.8);
+      z-index: 9999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;">
+      <img src="/static/spinner.gif" alt="Loading..." width="200" height="200">
+      <p style="margin-top: 1rem; font-size: 1rem; color: #333;">Sending your message...</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- reCAPTCHA -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<script>
+document.getElementById('contact-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  // Hide the form
+  this.style.display = 'none';
+
+  // Show loading overlay
+  const overlay = document.getElementById('loading-overlay');
+  overlay.style.display = 'flex';
+
+  const form = new FormData(this);
+
+  fetch("https://script.google.com/macros/s/AKfycbwzoyMzkZHF9FsrXNiGJ-Zemuzkig5pzZJoK8gM1rLz2weVnhjn99h8Gx054yJVYfxSQA/exec", {
+    method: "POST",
+    body: form
+  }).then(response => response.text())
+    .then(result => {
+      overlay.style.display = 'none';
+      document.getElementById('contact-form').style.display = 'block';
+
+      if (result === "Success") {
+        alert("Message sent successfully!");
+        e.target.reset();
+        if (typeof grecaptcha !== 'undefined') grecaptcha.reset();
+      } else {
+        alert("Error: " + result);
+      }
+    }).catch(err => {
+      overlay.style.display = 'none';
+      document.getElementById('contact-form').style.display = 'block';
+      alert("Something went wrong.");
+      console.error(err);
+    });
+});
+</script>
