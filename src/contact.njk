@@ -20,7 +20,7 @@ title: Contact
       <textarea name="message" rows="6" required></textarea>
 
       <!-- reCAPTCHA checkbox -->
-      <div class="g-recaptcha" data-sitekey="6LcM64krAAAAAM184IJ584Pj0rFL6li_yrNOxqMG"></div>
+      <div class="g-recaptcha" data-sitekey="6LfkJKUrAAAAAGI3T8e3GPj5i2MPjCYxZMBvDQe6"></div>
 
       <button type="submit">Submit</button>
       <p id="form-status"></p>
@@ -66,9 +66,11 @@ document.getElementById('contact-form').addEventListener('submit', function (e) 
   const overlay = document.getElementById('loading-overlay');
   overlay.style.display = 'flex';
 
+  // Build form data and add referer
   const form = new FormData(this);
+  form.append("referer", window.location.hostname);
 
-  fetch("https://script.google.com/macros/s/AKfycbwzoyMzkZHF9FsrXNiGJ-Zemuzkig5pzZJoK8gM1rLz2weVnhjn99h8Gx054yJVYfxSQA/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbzEtalpqq0uH-sQ-uwd8MvkdP6kZkU7_6kYd3ohCRcI5nbeV3bYu0huJ0dwalLY-FYP5Q/exec", {
     method: "POST",
     body: form
   }).then(response => response.text())
