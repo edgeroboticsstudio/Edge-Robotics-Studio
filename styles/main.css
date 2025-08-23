@@ -1,29 +1,115 @@
+/* ---------------------------- General Page Styles ---------------------------- */
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
   background-color: #fffafa;
 }
-header {
-  display:flex;
-  flex-direction:column;
-  text-align: center;
-  padding: 10px;
 
+/* ------------------------------- Header Layout ------------------------------ */
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 0;
+  background-color: #fffafa;
 }
+
+/* Logo Styling */
+.logo {
+  width: 60px;
+  padding: 6px;
+  margin: 0 10px 10px 10px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: transparent;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  cursor: pointer;
+  display: inline-block;
+  object-fit: contain;
+}
+
+.logo:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* ------------------------------- Navigation Styles ---------------------------- */
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
 nav a {
-  margin: 0 15px;
   text-decoration: none;
   color: black;
+  padding: 10px 20px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease-in-out;
+  font-weight: 500;
 }
 
-nav a:hover{
+nav a:hover {
   color: red;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
 }
 
 nav a.active {
   color: red;
 }
 
+/* ----------------------------- Social Icons Styles ---------------------------- */
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.socials a {
+  display: inline-block;
+}
+
+.socials img {
+  width: 45px;
+  height: 45px;
+  padding: 0.5px;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: bounce 2s ease-in-out infinite;
+}
+
+/* Bounce Animation */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Staggered Animation Delays */
+.socials a:nth-child(1) img {
+  animation-delay: 0s;
+}
+.socials a:nth-child(2) img {
+  animation-delay: 0.2s;
+}
+.socials a:nth-child(3) img {
+  animation-delay: 0.4s;
+}
+.socials a:nth-child(4) img {
+  animation-delay: 0.6s;
+}
+
+/* ------------------------------- Container for Contact ----------------------------- */
 .container {
   display: flex;
   justify-content: center;
@@ -31,12 +117,15 @@ nav a.active {
   padding: 40px 20px;
   flex-wrap: wrap;
 }
+
 form {
   flex: 1;
   max-width: 400px;
   margin: 20px;
 }
-form input, form textarea {
+
+form input,
+form textarea {
   width: 100%;
   padding: 10px;
   margin: 10px 0;
@@ -44,6 +133,7 @@ form input, form textarea {
   border: 1px solid #ccc;
   border-radius: 4px;
 }
+
 form button {
   background-color: rgb(1, 94, 78);
   color: white;
@@ -62,18 +152,22 @@ button:active {
 }
 
 button:hover {
-  background-color:rgb(1, 94, 78);
+  background-color: rgb(1, 94, 78);
 }
 
+/* Contact Info Box */
 .info {
   flex: 1;
   max-width: 400px;
   margin: 35px;
 }
+
 .info a {
   color: green;
   text-decoration: none;
 }
+
+/* ------------------------------- Footer Styles ------------------------------- */
 footer {
   text-align: center;
   background-color: #b71c1c;
@@ -81,26 +175,149 @@ footer {
   padding: 20px;
 }
 
-.logo {
-  width: 60px;
-  margin-bottom: 10px;
-
+/* --------------------------- Blog and Post Styles --------------------------- */
+.blog-list {
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: sans-serif;
+  padding: 0;
 }
 
-.socials{
+.blog-ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.blog-heading {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: white;
+}
+
+.blog-post {
+  margin-bottom: 50px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #ffffff60;
+}
+
+.blog-image {
+  margin: 0 20rem;
+}
+
+.blog-video {
+  margin: 0 15rem;
+}
+
+.meta {
   display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 10px;
+  align-items: center;
+  font-size: 14px;
+  color: white;
+  margin-bottom: 10px;
 }
 
-.socials a{
+.author-img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+h2 a {
+  text-decoration: none;
+  color: #66ccff;
+  font-size: 24px;
+}
+
+.post-row {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  margin-top: 15px;
+}
+
+.thumb {
+  width: 380px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.excerpt-block {
+  flex: 1;
+}
+
+.excerpt {
+  color: white;
+  margin: 0 0 10px 0;
+  line-height: 1.6;
+}
+
+.read-more {
+  color: #00bfff;
+  text-decoration: none;
+  font-weight: bold;
   display: inline-block;
 }
 
-.socials img {
-  width: 45px;
-  height: 45px;
-  padding: 0.5px;
+h7 a {
+  color: white;
+  margin: 0 35rem;
 }
 
+.bold {
+  color: #66ccff;
+}
+
+/* ---------------------------- Responsive Layout ---------------------------- */
+@media screen and (max-width: 768px) {
+  .post-row {
+    flex-direction: column;
+  }
+
+  .thumb {
+    width: 100%;
+    height: auto;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .blog-image,
+  .blog-video {
+    margin: 0;
+  }
+
+  h7 a {
+    margin: 0;
+  }
+}
+
+/* ---------------------------- Content Box Styling ---------------------------- */
+/* Content Box Styling (no background or box-shadow) */
+.content-box {
+  background-color: transparent;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  padding: 0;
+  box-shadow: none;
+}
+
+/* Image Styling Inside Content Box */
+.content-image {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease-in-out;
+}
+
+.content-image:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
