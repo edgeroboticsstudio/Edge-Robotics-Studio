@@ -6,7 +6,7 @@ title: Contact
 <section style="background-color: #004D40; color: white; padding: 4rem 2rem; margin: 0;">
   <div class="contact-card">
     <div class="container">
-      
+
       <form id="contact-form">
         <label>Name*</label>
         <input type="text" name="name" required />
@@ -20,7 +20,7 @@ title: Contact
         <label>Message*</label>
         <textarea name="message" rows="6" required></textarea>
 
-        <!-- reCAPTCHA checkbox -->
+        <!-- reCAPTCHA -->
         <div class="g-recaptcha" data-sitekey="6LfkJKUrAAAAALXhKvJoxpjpRl9XHXQU3ppZ0vGT"></div>
 
         <button type="submit">Submit</button>
@@ -35,42 +35,35 @@ title: Contact
         </p>
       </div>
 
-      <!-- Fullscreen Loading Spinner -->
-      <div id="loading-overlay" style="
-        display: none;
-        position: fixed;
-        top: 0; left: 0;
-        width: 100vw; height: 100vh;
-        background-color: rgba(255, 255, 255, 0.8);
-        z-index: 9999;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;">
-        <img src="/static/spinner.gif" alt="Loading..." width="200" height="200">
-        <p style="margin-top: 1rem; font-size: 1rem; color: #333;">Sending your message...</p>
+      <!-- Fullscreen Loading Overlay with CSS Dots -->
+      <div id="loading-overlay">
+        <p>Sending your message...</p>
+        <div class="dots">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
 
     </div>
   </div>
 </section>
 
-
-<!-- reCAPTCHA -->
+<!-- Google reCAPTCHA Script -->
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
+<!-- Contact Form Script -->
 <script>
 document.getElementById('contact-form').addEventListener('submit', function (e) {
   e.preventDefault();
 
-  // Hide the form
-  this.style.display = 'none';
-
-  // Show loading overlay
+  const formEl = this;
   const overlay = document.getElementById('loading-overlay');
-  overlay.style.display = 'flex';
 
-  // Build form data and add referer
-  const form = new FormData(this);
+  formEl.style.display = 'none';
+  overlay.classList.add('show');
+
+  const form = new FormData(formEl);
   form.append("referer", window.location.hostname);
 
   fetch("https://script.google.com/macros/s/AKfycbzEtalpqq0uH-sQ-uwd8MvkdP6kZkU7_6kYd3ohCRcI5nbeV3bYu0huJ0dwalLY-FYP5Q/exec", {
@@ -78,19 +71,19 @@ document.getElementById('contact-form').addEventListener('submit', function (e) 
     body: form
   }).then(response => response.text())
     .then(result => {
-      overlay.style.display = 'none';
-      document.getElementById('contact-form').style.display = 'block';
+      overlay.classList.remove('show');
+      formEl.style.display = 'block';
 
       if (result === "Success") {
         alert("Message sent successfully!");
-        e.target.reset();
+        formEl.reset();
         if (typeof grecaptcha !== 'undefined') grecaptcha.reset();
       } else {
         alert("Error: " + result);
       }
     }).catch(err => {
-      overlay.style.display = 'none';
-      document.getElementById('contact-form').style.display = 'block';
+      overlay.classList.remove('show');
+      formEl.style.display = 'block';
       alert("Something went wrong.");
       console.error(err);
     });
