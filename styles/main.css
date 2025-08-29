@@ -296,6 +296,73 @@ h2 a {
   color: var(--accent-color);
 }
 
+/* ------------------------------- About Section ------------------------------- */
+.about-section {
+  background-color: #004D40;
+  color: white;
+  padding: 4rem 2rem;
+  margin: 0;
+}
+
+.about-content-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+}
+
+.about-image {
+  flex: 1 1 300px;
+  min-width: 250px;
+}
+
+.about-text {
+  flex: 2 1 500px;
+}
+
+.content-image {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: var(--box-shadow);
+  object-fit: cover;
+}
+
+/* ------------------------------- About & Contact Cards ------------------------------- */
+.about-card {
+  background-color: rgba(255, 255, 255, 0.03);
+  color: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: var(--box-shadow);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.about-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--box-shadow-hover);
+}
+
+.contact-card {
+  background-color: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: var(--box-shadow);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.contact-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--box-shadow-hover);
+}
+
 /* ------------------------------- Loading Overlay ------------------------------- */
 #loading-overlay {
   opacity: 0;
@@ -349,17 +416,6 @@ h2 a {
 }
 #loading-overlay .dots span:nth-child(3) {
   animation-delay: 0.3s;
-}
-
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  50% {
-    transform: translateY(-12px);
-    opacity: 0.6;
-  }
 }
 
 #loading-overlay p {
