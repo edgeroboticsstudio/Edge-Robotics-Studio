@@ -12,14 +12,29 @@
   --box-shadow-hover: 0 6px 12px rgba(0, 0, 0, 0.25);
 }
 
-/* ---------------------------- General Page Styles ---------------------------- */
+/* ---------------------------- General Styles ---------------------------- */
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
   background-color: var(--bg-light);
 }
 
-/* ------------------------------- Header Layout ------------------------------ */
+a,
+button,
+input,
+textarea {
+  outline: none;
+}
+
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+/* ------------------------------- Header ------------------------------- */
 header {
   display: flex;
   flex-direction: column;
@@ -28,7 +43,7 @@ header {
   background-color: var(--bg-light);
 }
 
-/* Logo Styling */
+/* Logo */
 .logo {
   width: 60px;
   padding: 6px;
@@ -47,7 +62,7 @@ header {
   box-shadow: var(--box-shadow-hover);
 }
 
-/* ------------------------------- Navigation Styles ---------------------------- */
+/* ------------------------------- Navigation ------------------------------- */
 nav {
   display: flex;
   justify-content: center;
@@ -67,17 +82,14 @@ nav a {
   font-weight: 500;
 }
 
-nav a:hover {
+nav a:hover,
+nav a.active {
   color: var(--danger-color);
   transform: translateY(-2px);
   box-shadow: var(--box-shadow-hover);
 }
 
-nav a.active {
-  color: var(--danger-color);
-}
-
-/* ----------------------------- Social Icons Styles ---------------------------- */
+/* ------------------------------- Social Icons ------------------------------- */
 .socials {
   display: flex;
   justify-content: center;
@@ -97,9 +109,14 @@ nav a.active {
   background-color: white;
   box-shadow: var(--box-shadow);
   transform: translateY(0);
-  transition: transform 0.1s linear;
+  animation: bounce 1.2s ease-in-out infinite;
 }
 
+/* Staggered delays */
+.socials a:nth-child(1) img { animation-delay: 0s; }
+.socials a:nth-child(2) img { animation-delay: 0.2s; }
+.socials a:nth-child(3) img { animation-delay: 0.4s; }
+.socials a:nth-child(4) img { animation-delay: 0.6s; }
 
 @keyframes bounce {
   0%, 100% {
@@ -110,21 +127,7 @@ nav a.active {
   }
 }
 
-/* Staggered Animation Delays */
-.socials a:nth-child(1) img {
-  animation-delay: 0s;
-}
-.socials a:nth-child(2) img {
-  animation-delay: 0.2s;
-}
-.socials a:nth-child(3) img {
-  animation-delay: 0.4s;
-}
-.socials a:nth-child(4) img {
-  animation-delay: 0.6s;
-}
-
-/* ------------------------------- Container for Contact ----------------------------- */
+/* ------------------------------- Container ------------------------------- */
 .container {
   display: flex;
   justify-content: center;
@@ -133,6 +136,7 @@ nav a.active {
   flex-wrap: wrap;
 }
 
+/* ------------------------------- Form ------------------------------- */
 form {
   flex: 1;
   max-width: 400px;
@@ -157,9 +161,8 @@ form button {
   border-radius: 20px;
   box-shadow: var(--box-shadow);
   cursor: pointer;
-  font-weight: 500;  /* exactly same as nav buttons */
+  font-weight: 500;
   transition: all 0.2s ease-in-out;
-  display: inline-block;
   margin-top: 10px;
   text-align: center;
   text-decoration: none;
@@ -177,7 +180,7 @@ form button:active {
   box-shadow: var(--box-shadow);
 }
 
-/* Contact Info Box */
+/* ------------------------------- Contact Info ------------------------------- */
 .info {
   flex: 1;
   max-width: 400px;
@@ -189,7 +192,7 @@ form button:active {
   text-decoration: none;
 }
 
-/* ------------------------------- Footer Styles ------------------------------- */
+/* ------------------------------- Footer ------------------------------- */
 footer {
   text-align: center;
   background-color: var(--bg-footer);
@@ -197,7 +200,7 @@ footer {
   padding: 20px;
 }
 
-/* --------------------------- Blog and Post Styles --------------------------- */
+/* ------------------------------- Blog ------------------------------- */
 .blog-list {
   max-width: 1200px;
   margin: 0 auto;
@@ -282,7 +285,7 @@ h2 a {
   display: inline-block;
 }
 
-h7 a {
+.small-footer a {
   color: var(--text-light);
   margin: 0 auto;
   display: block;
@@ -292,31 +295,31 @@ h7 a {
   color: var(--accent-color);
 }
 
-/* ---------------------------- Responsive Layout ---------------------------- */
+/* ------------------------------- Responsive ------------------------------- */
 @media screen and (max-width: 768px) {
   .post-row {
     flex-direction: column;
   }
+
   .thumb {
     width: 100%;
     height: auto;
   }
+
   nav {
     flex-direction: column;
     gap: 10px;
   }
+
   .blog-image,
   .blog-video {
     margin: 0;
   }
-  h7 a {
-    margin: 0;
-  }
 }
 
-/* ---------------------------- Content Box Styling ---------------------------- */
+/* ------------------------------- Components ------------------------------- */
 .content-box {
-  background-color: #1a1a1a20; /* subtle overlay */
+  background-color: #1a1a1a20;
   border-radius: 12px;
   display: flex;
   flex-direction: column;
@@ -339,13 +342,12 @@ h7 a {
   transition: transform 0.3s ease, box-shadow 0.3s ease-in-out;
 }
 
-/* Optional: Keep image static while box moves */
 .content-image:hover {
   transform: none;
   box-shadow: var(--box-shadow);
 }
 
-/* ---------------------------- About Card Wrapper ---------------------------- */
+/* About Card */
 .about-card {
   background-color: rgba(255, 255, 255, 0.03);
   color: white;
@@ -362,8 +364,7 @@ h7 a {
   box-shadow: var(--box-shadow-hover);
 }
 
-/* ---------------------------- Contact Card Wrapper ---------------------------- */
-
+/* Contact Card */
 .contact-card {
   background-color: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(8px);
