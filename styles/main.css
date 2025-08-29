@@ -100,6 +100,30 @@ nav a.active {
   transition: transform 0.1s linear;
 }
 
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Staggered Animation Delays */
+.socials a:nth-child(1) img {
+  animation-delay: 0s;
+}
+.socials a:nth-child(2) img {
+  animation-delay: 0.2s;
+}
+.socials a:nth-child(3) img {
+  animation-delay: 0.4s;
+}
+.socials a:nth-child(4) img {
+  animation-delay: 0.6s;
+}
+
 /* ------------------------------- Container for Contact ----------------------------- */
 .container {
   display: flex;
