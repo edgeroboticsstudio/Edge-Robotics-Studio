@@ -89,7 +89,7 @@ nav a.active {
   box-shadow: var(--box-shadow-hover);
 }
 
-/* ------------------------------- Social Icons ------------------------------- */
+/* ------------------------------- Social Icons (Header) ------------------------------- */
 .socials {
   display: flex;
   justify-content: center;
@@ -201,6 +201,12 @@ footer {
   padding: 20px;
 }
 
+.small-footer a {
+  color: var(--text-light);
+  margin: 0 auto;
+  display: block;
+}
+
 /* ------------------------------- Blog ------------------------------- */
 .blog-list {
   max-width: 1200px;
@@ -286,12 +292,6 @@ h2 a {
   display: inline-block;
 }
 
-.small-footer a {
-  color: var(--text-light);
-  margin: 0 auto;
-  display: block;
-}
-
 .bold {
   color: var(--accent-color);
 }
@@ -359,6 +359,28 @@ h2 a {
 }
 
 .contact-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--box-shadow-hover);
+}
+
+/* ------------------------------- About Social Icons ------------------------------- */
+.about-social-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.about-social-icons img {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  padding: 4px;
+  background-color: transparent;
+  box-shadow: var(--box-shadow);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.about-social-icons img:hover {
   transform: translateY(-3px);
   box-shadow: var(--box-shadow-hover);
 }
