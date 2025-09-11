@@ -3,43 +3,39 @@ layout: layout.njk
 title: Contact
 ---
 
-<section style="background-color: #004D40; color: white; padding: 4rem 2rem; margin: 0;">
-  <div class="contact-card">
-    <div class="container">
+<section class="contact-section">
+  <div class="card container">
+    
+    <form id="contact-form">
+      <label>Name*</label>
+      <input type="text" name="name" required />
 
-      <form id="contact-form">
-        <label>Name*</label>
-        <input type="text" name="name" required />
+      <label>Subject*</label>
+      <input type="text" name="subject" required />
 
-        <label>Subject*</label>
-        <input type="text" name="subject" required />
+      <label>Email*</label>
+      <input type="email" name="email" required />
 
-        <label>Email*</label>
-        <input type="email" name="email" required />
+      <label>Message*</label>
+      <textarea name="message" rows="6" required></textarea>
 
-        <label>Message*</label>
-        <textarea name="message" rows="6" required></textarea>
+      <!-- reCAPTCHA -->
+      <div class="g-recaptcha" data-sitekey="6LfkJKUrAAAAALXhKvJoxpjpRl9XHXQU3ppZ0vGT"></div>
 
-        <!-- reCAPTCHA -->
-        <div class="g-recaptcha" data-sitekey="6LfkJKUrAAAAALXhKvJoxpjpRl9XHXQU3ppZ0vGT"></div>
+      <button type="submit">Submit</button>
+      <p id="form-status"></p>
+    </form>
 
-        <button type="submit">Submit</button>
-        <p id="form-status"></p>
-      </form>
-
-      <div class="info">
-        <h2>Contact</h2>
-        <p>Please use the contact form to get in touch.</p>
-        <p>Alternatively, send an e-mail to: 
-          <a href="mailto:edgeroboticsstudio@gmail.com">edgeroboticsstudio@gmail.com</a>
-        </p>
-      </div>
-
+    <div class="info">
+      <h2>Contact</h2>
+      <p>Please use the contact form to get in touch.</p>
+      <p>Alternatively, send an e-mail to: <a href="mailto:edgeroboticsstudio@gmail.com">edgeroboticsstudio@gmail.com</a></p>
     </div>
+
   </div>
 </section>
 
-<!-- ✅ Moved outside the section -->
+<!-- Loading Overlay -->
 <div id="loading-overlay">
   <p>Sending your message...</p>
   <div class="dots">
@@ -49,43 +45,38 @@ title: Contact
   </div>
 </div>
 
-<!-- Google reCAPTCHA Script -->
+<!-- Scripts -->
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
-<!-- Contact Form Script -->
 <script>
-document.getElementById('contact-form').addEventListener('submit', function (e) {
+document.getElementById('contact-form').addEventListener('submit', function(e){
   e.preventDefault();
+  const formEl=this;
+  const overlay=document.getElementById('loading-overlay');
 
-  const formEl = this;
-  const overlay = document.getElementById('loading-overlay');
-
-  formEl.style.display = 'none';
+  formEl.style.display='none';
   overlay.classList.add('show');
 
-  const form = new FormData(formEl);
+  const form=new FormData(formEl);
   form.append("referer", window.location.hostname);
 
-  fetch("https://script.google.com/macros/s/AKfycbzEtalpqq0uH-sQ-uwd8MvkdP6kZkU7_6kYd3ohCRcI5nbeV3bYu0huJ0dwalLY-FYP5Q/exec", {
-    method: "POST",
-    body: form
-  }).then(response => response.text())
-    .then(result => {
-      overlay.classList.remove('show');
-      formEl.style.display = 'block';
-
-      if (result === "Success") {
-        alert("Message sent successfully!");
-        formEl.reset();
-        if (typeof grecaptcha !== 'undefined') grecaptcha.reset();
-      } else {
-        alert("Error: " + result);
-      }
-    }).catch(err => {
-      overlay.classList.remove('show');
-      formEl.style.display = 'block';
-      alert("Something went wrong.");
-      console.error(err);
-    });
+  fetch("https://script.google.com/macros/s/AKfycbzEtalpqq0uH-sQ-uwd8MvkdP6kZkU7_6kYd3ohCRcI5nbeV3bYu0huJ0dwalLY-FYP5Q/exec",{
+    method:"POST",
+    body:form
+  }).then(r=>r.text()).then(result=>{
+    overlay.classList.remove('show');
+    formEl.style.display='block';
+    if(result==="Success"){
+      alert("Message sent successfully!");
+      formEl.reset();
+      if(typeof grecaptcha!=='undefined') grecaptcha.reset();
+    }else{
+      alert("Error: "+result);
+    }
+  }).catch(err=>{
+    overlay.classList.remove('show');
+    formEl.style.display='block';
+    alert("Something went wrong.");
+    console.error(err);
+  });
 });
 </script>
