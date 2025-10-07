@@ -1,0 +1,61 @@
+<!-- chatbot.njk -->
+<div id="chatbot-container">
+  <!-- Floating chat button -->
+  <button id="chat-button">💭</button>
+
+  <!-- Nudge bubble -->
+  <div id="nudge">We are here to help you 🙂</div>
+
+  <!-- Chatbox -->
+  <div id="chatbox">
+    <div id="chat-header">
+      <span>Support Bot</span>
+      <button id="close-chat">✖️</button>
+    </div>
+    <div id="chat-messages">
+      <p><b>Bot:</b> Thank you for connecting with us !<br><br>
+      Unfortunately, all our representatives are busy right now.<br><br>
+      Kindly fill out the 
+      <a id="contact-form-link" href="https://edgeroboticsstudio.com/contact/" target="_blank">
+        contact form
+      </a> 
+      and one of our representatives will reach out via email as soon as possible.<br><br>
+      Thank you!</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  const chatButton = document.getElementById("chat-button");
+  const chatbox = document.getElementById("chatbox");
+  const nudge = document.getElementById("nudge");
+  const closeChat = document.getElementById("close-chat");
+
+  chatButton.addEventListener("click", () => {
+    chatbox.classList.add("show");
+    chatbox.style.display = "block";
+    nudge.style.display = "none";
+  });
+
+  nudge.addEventListener("click", () => {
+    chatbox.classList.add("show");
+    chatbox.style.display = "block";
+    nudge.style.display = "none";
+  });
+
+  closeChat.addEventListener("click", () => {
+    chatbox.classList.remove("show");
+    setTimeout(() => { chatbox.style.display = "none"; }, 300);
+  });
+
+  setInterval(() => {
+    if (chatbox.style.display !== "block") {
+      nudge.style.display = "block";
+      nudge.style.animation = "fadeIn 0.5s";
+      setTimeout(() => {
+        nudge.style.animation = "fadeOut 0.5s";
+        setTimeout(() => { nudge.style.display = "none"; }, 500);
+      }, 3000);
+    }
+  }, 10000);
+</script>
