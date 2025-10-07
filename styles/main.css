@@ -1,6 +1,6 @@
 :root {
-  --primary-color: #015e4e;
-  --accent-color: #66ccff;
+  --primary-color: white;
+  --accent-color: transparent;
   --danger-color: red;
   --bg-light: #fffafa;
   --bg-footer: #b71c1c;
@@ -8,6 +8,11 @@
   --text-dark: black;
   --box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   --box-shadow-hover: 0 6px 12px rgba(0,0,0,0.25);
+  --chat-bg: #015e4e;        /* Chatbox background */
+  --chat-button-bg: var(--accent-color); /* Floating button background */
+  --chat-button-color: var(--text-light);
+  --chat-text: var(--text-light);
+  --chat-header-bg: var(--primary-color);
 }
 
 /* ---------------- General ---------------- */
@@ -116,12 +121,8 @@ nav a:hover, nav a.active {
 .socials a:nth-child(4) img { animation-delay: 0.6s; }
 
 @keyframes bounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }
 
 /* ---------------- Card Style ---------------- */
@@ -374,4 +375,119 @@ footer {
   font-size:1.2rem;
   font-weight:600;
   color:white;
+}
+
+/* ==========================================================
+   Chatbot Integration Styles
+   ========================================================== */
+
+#chat-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--chat-button-bg);
+  color: var(--chat-button-color);
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 28px;
+  cursor: pointer;
+  box-shadow: var(--box-shadow);
+  z-index: 1001;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#chat-button:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--box-shadow-hover);
+}
+
+/* Remove border from chatbox */
+#chatbox {
+  display: none;
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 300px;
+  max-height: 400px;
+  overflow-y: auto;
+  border: none; /* removed border */
+  border-radius: 10px;
+  background: var(--chat-bg);
+  box-shadow: var(--box-shadow);
+  font-family: 'Segoe UI',sans-serif;
+  z-index: 1000;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform: translateY(20px);
+  opacity: 0;
+}
+
+/* Contact form link without underline */
+#contact-form-link {
+  color: green;
+  text-decoration: none; /* removed underline */
+}
+
+#contact-form-link:hover {
+  text-decoration: none; /* prevent underline on hover too */
+}
+
+
+#chatbox.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+#chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--chat-header-bg);
+  color: var(--text-dark);
+  padding: 8px 12px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  font-weight: bold;
+}
+
+#close-chat {
+  background: transparent;
+  border: none;
+  color: var(--text-light);
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#chatbox p {
+  margin: 10px;
+  line-height: 1.5;
+  color: var(--chat-text);
+}
+
+#nudge {
+  display: none;
+  position: fixed;
+  bottom: 33px;
+  right: 90px;
+  background: var(--accent-color);
+  color: var(--text-light);
+  padding: 8px 12px;
+  border-radius: 15px;
+  font-family: 'Segoe UI',sans-serif;
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
+  z-index: 1002;
+  animation: fadeIn 0.5s;
+  white-space: nowrap;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
 }
