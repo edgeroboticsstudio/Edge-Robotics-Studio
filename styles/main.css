@@ -567,3 +567,93 @@ footer {
   from { opacity: 1; }
   to { opacity: 0; }
 }
+
+
+/* ================= BLOG LIST ================= */
+
+.blog-list {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+/* -------- Post Card -------- */
+
+.blog-post {
+  margin-bottom: 4rem;
+  margin-left: 2rem;
+  margin-top: 2rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+
+/* -------- Meta Row -------- */
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #d0f2eb;
+}
+
+.author-img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* -------- Content Row -------- */
+
+.post-row {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.thumb {
+  margin-top: 1.5rem;
+  width: 360px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* -------- Text Content -------- */
+
+.excerpt-block {
+  max-width: 1000px;
+}
+
+.excerpt-block h3 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.excerpt {
+  color: #d1f5e0;
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+}
+
+.read-more {
+  color: #00e5ff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* -------- Responsive -------- */
+
+@media (max-width: 900px) {
+  .post-row {
+    flex-direction: column;
+  }
+
+  .thumb {
+    width: 100%;
+    height: auto;
+  }
+}

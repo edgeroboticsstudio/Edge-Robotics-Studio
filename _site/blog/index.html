@@ -4,50 +4,155 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog</title>
-  <link rel="stylesheet" href="/Edge-Robotics-Studio/styles/main.css">
+  <link rel="stylesheet" href="/styles/main.css">
 </head>
 <body>
   <header>
 
   <div class="logo-container">
-    <img src="/Edge-Robotics-Studio/static/logo.png" alt="Edge Robotics Studio" class="logo"/>
+    <img src="/static/logo.png" alt="Edge Robotics Studio" class="logo"/>
   </div>
 
   <nav>
-    <a href="/Edge-Robotics-Studio/" class="">Home</a>
-    <a href="/Edge-Robotics-Studio/services/" class="">Services</a>
-    <a href="/Edge-Robotics-Studio/projects/" class="">Projects</a>
-    <a href="/Edge-Robotics-Studio/blog/" class="active">Blog</a>
-    <a href="/Edge-Robotics-Studio/contact/" class="">Contact</a>
+    <a href="/" class="">Home</a>
+    <a href="/services/" class="">Services</a>
+    <a href="/projects/" class="">Projects</a>
+    <a href="/blog/" class="active">Blog</a>
+    <a href="/contact/" class="">Contact</a>
   </nav>
 
   <div class="socials">
     <a href="https://www.linkedin.com/company/edgeroboticsstudio">
-      <img src="/Edge-Robotics-Studio/static/linkdin.png" alt="LinkedIn"/>
+      <img src="/static/linkdin.png" alt="LinkedIn"/>
     </a>
     <a href="https://youtube.com/@edge_robotics_studio?si=pvhXs8rDeXPNX9yU">
-      <img src="/Edge-Robotics-Studio/static/youtube.png" alt="YouTube"/>
+      <img src="/static/youtube.png" alt="YouTube"/>
     </a>
     <a href="mailto:edgeroboticsstudio@gmail.com">
-      <img src="/Edge-Robotics-Studio/static/email.png" alt="Email"/>
+      <img src="/static/email.png" alt="Email"/>
+    </a>
+    <a href="https://github.com/edgeroboticsstudio">
+      <img src="/static/github.png" alt="GitHub"/>
     </a>
   </div>
 </header>
 
   <main>
     
-<!-- Green About Section -->
-<section style="background-color: #004D40; color: white; padding: 4rem 2rem; margin: 0;">
-<h2>Coming Soon...</h2>
+<section style="background-color: #004D40; color: white; padding: 4rem 2rem; margin: 0; class="blog-list">
+
+  <h1 class="blog-heading">Blog</h1>
+
+  
+  <article class="blog-post">
+
+    <!-- Meta row -->
+    <div class="meta">
+      
+        <img src="/static/author.png" class="author-img" />
+      
+      <span>January 1, 2026</span>
+      <span> • </span>
+      <span>1 min read</span>
+    </div>
+
+    <!-- Content row -->
+    <div class="post-row">
+
+      
+        <img src="/static/Thumbnail.png" class="thumb" />
+      
+
+      <div class="excerpt-block">
+        <h3>
+          <a href="/blog/1. First Blog/" class="read-more">
+            First Blog
+          </a>
+        </h3>
+
+        
+          <p class="excerpt">Hi, I’m Dharmesh, a freelance roboticist with a strong background in robotics and embedded systems. With roots in India, I’m currently based in Ahmedabad, Gujarat.
+I completed my Bachelor’s degree in Mechanical Engineering in 2021, and since then, I’ve worked alongside industry professionals and leading academic educators, gaining hands-on experience across diverse robotics domains.
+At present, I’m actively engaged in multiple robotics projects, focusing on system design, control, and real-world implementation.</p>
+        
+
+        <a href="/blog/1. First Blog/" class="read-more">Read more →</a>
+      </div>
+
+    </div>
+
+  </article>
+  
+
 </section>
-
-
 
   </main>
   <footer>
-  <img src="/Edge-Robotics-Studio/static/logo.png" alt="Edge Robotics Studio" class="logo"/>
+  <img src="/static/logo.png" alt="Edge Robotics Studio" class="logo"/>
   <p>Edge Robotics Studio © Copyright 2025. All rights reserved.</p>
 </footer>
+
+  <!-- chatbot.njk -->
+<div id="chatbot-container">
+  <!-- Floating chat button -->
+  <button id="chat-button">💭</button>
+
+  <!-- Nudge bubble -->
+  <div id="nudge">We are here to help you 🙂</div>
+
+  <!-- Chatbox -->
+  <div id="chatbox">
+    <div id="chat-header">
+      <span>Support Bot</span>
+      <button id="close-chat">✖️</button>
+    </div>
+    <div id="chat-messages">
+      <p><b>Bot:</b> Thank you for connecting with us !<br><br>
+      Unfortunately, all our representatives are busy right now.<br><br>
+      Kindly fill out the 
+      <a id="contact-form-link" href="https://edgeroboticsstudio.com/contact/" target="_blank">
+        contact form
+      </a> 
+      and one of our representatives will reach out via email as soon as possible.<br><br>
+      Thank you!</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  const chatButton = document.getElementById("chat-button");
+  const chatbox = document.getElementById("chatbox");
+  const nudge = document.getElementById("nudge");
+  const closeChat = document.getElementById("close-chat");
+
+  chatButton.addEventListener("click", () => {
+    chatbox.classList.add("show");
+    chatbox.style.display = "block";
+    nudge.style.display = "none";
+  });
+
+  nudge.addEventListener("click", () => {
+    chatbox.classList.add("show");
+    chatbox.style.display = "block";
+    nudge.style.display = "none";
+  });
+
+  closeChat.addEventListener("click", () => {
+    chatbox.classList.remove("show");
+    setTimeout(() => { chatbox.style.display = "none"; }, 300);
+  });
+
+  setInterval(() => {
+    if (chatbox.style.display !== "block") {
+      nudge.style.display = "block";
+      nudge.style.animation = "fadeIn 0.5s";
+      setTimeout(() => {
+        nudge.style.animation = "fadeOut 0.5s";
+        setTimeout(() => { nudge.style.display = "none"; }, 500);
+      }, 3000);
+    }
+  }, 10000);
+</script>
 
 </body>
 </html>
