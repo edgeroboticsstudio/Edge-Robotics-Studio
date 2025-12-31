@@ -597,7 +597,9 @@ footer {
   margin-bottom:1.5rem;
   border-radius: 2%;
 
-}.blog-image-p {
+}
+
+.blog-image-p {
   width: 650px;
   height: 380px;
   display: block;
