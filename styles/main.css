@@ -580,33 +580,26 @@ footer {
 /* -------- Post Card -------- */
 
 .blog-post {
-  margin-bottom: 4rem;
-  margin-left: 2rem;
-  margin-top: 2rem;
+  margin: 2rem 2rem 4rem;
   padding-bottom: 3rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.25);
 }
 
-
-.blog-image {
-  width: 580px;
-  height: 400px;
-  display: block;
-  margin: 0 auto;
-  margin-top: 2.5rem;
-  margin-bottom:1.5rem;
-  border-radius: 2%;
-}
-
+.blog-image,
 .blog-image-p {
-  width: 650px;
-  height: 380px;
+  width: 100%;
+  max-width: 650px;
+  height: auto;
   display: block;
-  margin: 0 auto;
-  margin-top: 2.5rem;
-  margin-bottom: 1.5rem;
-  border-radius: 2%;
+  margin: 2.5rem auto 1.5rem;
+  border-radius: 8px;
 }
+
+/* Optional: slightly smaller image variant */
+.blog-image {
+  max-width: 580px;
+}
+
 
 /* -------- Meta Row -------- */
 
