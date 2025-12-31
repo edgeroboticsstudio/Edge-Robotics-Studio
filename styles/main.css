@@ -588,6 +588,26 @@ footer {
 }
 
 
+.blog-image {
+  width: 580px;
+  height: 400px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 2.5rem;
+  margin-bottom:1.5rem;
+  border-radius: 2%;
+
+}.blog-image-p {
+  width: 650px;
+  height: 380px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 2%;
+
+}
+
 /* -------- Meta Row -------- */
 
 .meta {
