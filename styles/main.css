@@ -671,26 +671,36 @@ footer {
   }
 }
 
-
-.giscus,
-.giscus-frame {
-  width: 100%;
-}
+/* ===============================
+   Giscus Wrapper Styling
+================================ */
 
 .giscus {
+  width: 100%;
   margin-top: 4rem;
   padding: 2rem;
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
-
+/* Ensure iframe fills container */
+.giscus iframe,
 .giscus-frame {
-  border-radius: 10px;
+  width: 100% !important;
+  border: none;
+}
+
+/* Wrapper to enforce rounded corners */
+.giscus-wrapper {
+  border-radius: 12px;
   overflow: hidden;
 }
 
-.giscus {
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+/* Optional spacing tweak for mobile */
+@media (max-width: 768px) {
+  .giscus {
+    padding: 1.2rem;
+  }
 }
