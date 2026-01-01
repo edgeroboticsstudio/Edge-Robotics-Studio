@@ -588,6 +588,26 @@ footer {
 }
 
 
+.blog-image {
+  width: 580px;
+  height: 400px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 2.5rem;
+  margin-bottom:1.5rem;
+  border-radius: 2%;
+
+}.blog-image-p {
+  width: 650px;
+  height: 380px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 2%;
+
+}
+
 /* -------- Meta Row -------- */
 
 .meta {
@@ -647,7 +667,7 @@ footer {
 
 /* -------- Responsive -------- */
 
-@media (max-width: 900px) {
+@media (max-width: 100px) {
   .post-row {
     flex-direction: column;
   }
@@ -656,4 +676,28 @@ footer {
     width: 100%;
     height: auto;
   }
+}
+
+
+.giscus,
+.giscus-frame {
+  width: 100%;
+}
+
+.giscus {
+  margin-top: 4rem;
+  padding: 2rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+
+.giscus-frame {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.giscus {
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
