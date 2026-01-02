@@ -571,42 +571,61 @@ footer {
 
 /* ================= BLOG LIST ================= */
 
+/* -------- Blog List Wrapper -------- */
 .blog-list {
   max-width: 1200px;
   margin: 0 auto;
   padding: 3rem 2rem;
 }
 
-/* -------- Post Card -------- */
-
+/* -------- Blog Post Card -------- */
 .blog-post {
-  margin-bottom: 4rem;
-  margin-left: 2rem;
-  margin-top: 2rem;
-  padding-bottom: 3rem;
+  background-color: rgba(255, 255, 255, 0.03);
+  color: white;
+  border-radius: 12px;
+  padding: 2.5rem 2.5rem 3rem;
+  margin: 2rem auto 4rem;
+
+  box-shadow: var(--box-shadow);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
   border-bottom: 1px solid rgba(255, 255, 255, 0.25);
 }
 
-
-.blog-image {
-  width: 580px;
-  height: 400px;
-  display: block;
-  margin: 0 auto;
-  margin-top: 2.5rem;
-  margin-bottom:1.5rem;
-  border-radius: 2%;
-
-}.blog-image-p {
-  width: 650px;
-  height: 380px;
-  display: block;
-  margin: 0 auto;
-  margin-top: 2.5rem;
-  margin-bottom: 1.5rem;
-  border-radius: 2%;
-
+/* Hover effect */
+.blog-post:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--box-shadow-hover);
 }
+
+/* -------- Images -------- */
+.blog-image,
+.blog-image-p {
+  width: 100%;
+  max-width: 650px;
+  height: auto;
+  display: block;
+  margin: 2.5rem auto 1.5rem;
+  border-radius: 8px;
+}
+
+/* Slightly smaller variant */
+.blog-image {
+  max-width: 580px;
+}
+
+/* -------- Text Styling -------- */
+.blog-post h1,
+.blog-post h2 {
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.blog-post p {
+  line-height: 1.8;
+  opacity: 0.92;
+}
+
 
 /* -------- Meta Row -------- */
 
@@ -678,26 +697,36 @@ footer {
   }
 }
 
-
-.giscus,
-.giscus-frame {
-  width: 100%;
-}
+/* ===============================
+   Giscus Wrapper Styling
+================================ */
 
 .giscus {
+  width: 100%;
   margin-top: 4rem;
   padding: 2rem;
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
-
+/* Ensure iframe fills container */
+.giscus iframe,
 .giscus-frame {
-  border-radius: 10px;
+  width: 100% !important;
+  border: none;
+}
+
+/* Wrapper to enforce rounded corners */
+.giscus-wrapper {
+  border-radius: 12px;
   overflow: hidden;
 }
 
-.giscus {
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+/* Optional spacing tweak for mobile */
+@media (max-width: 768px) {
+  .giscus {
+    padding: 1.2rem;
+  }
 }

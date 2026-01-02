@@ -571,20 +571,34 @@ footer {
 
 /* ================= BLOG LIST ================= */
 
+/* -------- Blog List Wrapper -------- */
 .blog-list {
   max-width: 1200px;
   margin: 0 auto;
   padding: 3rem 2rem;
 }
 
-/* -------- Post Card -------- */
-
+/* -------- Blog Post Card -------- */
 .blog-post {
-  margin: 2rem 2rem 4rem;
-  padding-bottom: 3rem;
+  background-color: rgba(255, 255, 255, 0.03);
+  color: white;
+  border-radius: 12px;
+  padding: 2.5rem 2.5rem 3rem;
+  margin: 2rem auto 4rem;
+
+  box-shadow: var(--box-shadow);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
   border-bottom: 1px solid rgba(255, 255, 255, 0.25);
 }
 
+/* Hover effect */
+.blog-post:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--box-shadow-hover);
+}
+
+/* -------- Images -------- */
 .blog-image,
 .blog-image-p {
   width: 100%;
@@ -595,9 +609,21 @@ footer {
   border-radius: 8px;
 }
 
-/* Optional: slightly smaller image variant */
+/* Slightly smaller variant */
 .blog-image {
   max-width: 580px;
+}
+
+/* -------- Text Styling -------- */
+.blog-post h1,
+.blog-post h2 {
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.blog-post p {
+  line-height: 1.8;
+  opacity: 0.92;
 }
 
 
