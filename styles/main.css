@@ -773,3 +773,39 @@ footer {
     padding: 1.2rem;
   }
 }
+
+/* ================= Refactored Sections ================= */
+
+.blog-list-section {
+  background-color: #004D40;
+  color: white;
+  padding: 4rem 2rem;
+  margin: 0;
+  min-height: 80vh;
+}
+
+.projects-section {
+  background-color: #004D40;
+  color: white;
+  padding: 4rem 2rem;
+  margin: 0;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.projects-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.project-card {
+  max-width: 600px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
