@@ -313,15 +313,16 @@
     
   </div>
 
-  <!-- Carousel dots will be injected here -->
+  <div id="dots-wrapper" class="carousel-dots"></div>
 </section>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
   const carousel = document.querySelector('.services-cards');
-  const dotsContainer = document.createElement('div');
-  dotsContainer.classList.add('carousel-dots');
-  carousel.parentNode.appendChild(dotsContainer);
+  const dotsContainer = document.getElementById('dots-wrapper');
+  
+  // Clear existing dots to prevent duplicates
+  dotsContainer.innerHTML = '';
 
   const cards = carousel.querySelectorAll('.service-card');
 
@@ -346,11 +347,27 @@
     if (dots[index]) dots[index].classList.add('active');
   }
 
+  // Calculate stride (card width + gap) safely
+  function getStride() {
+    const card = carousel.querySelector('.service-card');
+    if (!card) return 0;
+    
+    // Get absolute card width
+    const cardWidth = card.offsetWidth;
+    
+    // Get computed gap (fallback to 32px / 2rem if fails)
+    const style = window.getComputedStyle(carousel);
+    const gap = parseFloat(style.gap) || 32;
+    
+    return cardWidth + gap;
+  }
+
   // Sync dots with scroll
   carousel.addEventListener('scroll', () => {
-    const scrollLeft = carousel.scrollLeft;
-    const cardWidth = carousel.clientWidth * 0.93;
-    const index = Math.round(scrollLeft / cardWidth);
+    const stride = getStride();
+    if (stride < 1) return;
+    
+    const index = Math.round(carousel.scrollLeft / stride);
     setActiveDot(index);
   });
 
@@ -358,18 +375,19 @@
   let autoScroll = setInterval(() => nextSlide(), 4000);
 
   function nextSlide() {
+    const stride = getStride();
+    if (stride < 1) return;
+    
     const maxScroll = carousel.scrollWidth - carousel.clientWidth;
-    if (carousel.scrollLeft >= maxScroll - 5) {
+    
+    // Check if we are close to the end (within 10px tolerance)
+    if (carousel.scrollLeft >= maxScroll - 10) {
       carousel.scrollTo({ left: 0, behavior: 'smooth' });
-      setActiveDot(0);
     } else {
-      carousel.scrollBy({ left: carousel.clientWidth * 0.93, behavior: 'smooth' });
-      const nextIndex = Math.min(
-        Math.round(carousel.scrollLeft / (carousel.clientWidth * 0.93)) + 1,
-        dots.length - 1
-      );
-      setActiveDot(nextIndex);
+      carousel.scrollBy({ left: stride, behavior: 'smooth' });
     }
+    
+    // Note: The scroll listener will update the dots
   }
 
   carousel.addEventListener('mouseenter', () => clearInterval(autoScroll));
