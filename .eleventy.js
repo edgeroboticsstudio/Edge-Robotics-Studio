@@ -1,9 +1,10 @@
 // .eleventy.js
-module.exports = function(eleventyConfig) {
+module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy("static");
   eleventyConfig.addPassthroughCopy("styles");
   eleventyConfig.addPassthroughCopy("CNAME");
+  eleventyConfig.addPassthroughCopy({ "src/site.webmanifest": "site.webmanifest" });
 
   eleventyConfig.addCollection("blog", function (collectionApi) {
     return collectionApi.getFilteredByTag("blog");
