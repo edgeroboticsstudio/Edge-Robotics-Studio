@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://edgeroboticsstudio.com/blog/who-i-am-and-what-i-build/</loc>
+    <lastmod>2026-01-01T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://edgeroboticsstudio.com/blog/</loc>
-    <lastmod>2025-12-29T04:16:28.438Z</lastmod>
+    <lastmod>2026-01-18T15:27:56.804Z</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://edgeroboticsstudio.com/contact/</loc>
-    <lastmod>2025-12-29T04:16:28.438Z</lastmod>
+    <lastmod>2026-01-18T15:27:56.805Z</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://edgeroboticsstudio.com/</loc>
-    <lastmod>2025-12-29T04:16:28.439Z</lastmod>
+    <lastmod>2026-01-18T15:27:56.805Z</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://edgeroboticsstudio.com/projects/</loc>
-    <lastmod>2025-12-29T04:16:28.439Z</lastmod>
+    <lastmod>2026-01-18T15:27:56.806Z</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://edgeroboticsstudio.com/services/</loc>
-    <lastmod>2025-12-29T04:16:28.439Z</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://edgeroboticsstudio.com/blog/who-i-am-and-what-i-build/</loc>
-    <lastmod>2026-01-01T00:00:00.000Z</lastmod>
+    <lastmod>2026-01-18T15:27:56.806Z</lastmod>
     <changefreq>monthly</changefreq>
   </url>
 </urlset>
