@@ -104,7 +104,7 @@ nav a.active {
   border-radius: 8px;
   background-color: white;
   box-shadow: var(--box-shadow);
-  animation: bounce 1.2s ease-in-out infinite;
+  animation: bounce 2s ease-in-out infinite;
   cursor: pointer;
 }
 
@@ -127,28 +127,28 @@ nav a.active {
   background-color: white;
   box-shadow: var(--box-shadow);
   transform: translateY(0);
-  animation: bounce 1.2s ease-in-out infinite;
+  animation: bounce 2s ease-in-out infinite;
 }
 
-/* Staggered delays */
+/* Staggered delays for sine wave effect propagating from the center (3rd icon) */
 .socials a:nth-child(1) img {
-  animation-delay: 0s;
+  animation-delay: -0.5s;
 }
 
 .socials a:nth-child(2) img {
-  animation-delay: 0.2s;
+  animation-delay: -0.25s;
 }
 
 .socials a:nth-child(3) img {
-  animation-delay: 0.4s;
+  animation-delay: 0s;
 }
 
 .socials a:nth-child(4) img {
-  animation-delay: 0.6s;
+  animation-delay: 0.25s;
 }
 
 .socials a:nth-child(5) img {
-  animation-delay: 0.8s;
+  animation-delay: 0.5s;
 }
 
 @keyframes bounce {
@@ -159,7 +159,7 @@ nav a.active {
   }
 
   50% {
-    transform: translateY(-8px);
+    transform: translateY(-18px);
   }
 }
 
