@@ -29,6 +29,9 @@ module.exports = function (eleventyConfig) {
     return Math.ceil(words / 200);
   });
 
+  // Global year shortcode
+  eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
+
   return {
     pathPrefix: "/",
     dir: {
