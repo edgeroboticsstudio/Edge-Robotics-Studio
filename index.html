@@ -116,7 +116,8 @@
   </main>
   <footer>
   <img src="/static/logo.png" alt="Edge Robotics Studio" class="logo"/>
-  <p>Edge Robotics Studio © Copyright 2026. All rights reserved.</p>
+  <p>Edge Robotics Studio © Copyright <span id="copyright-year">2026</span>. All rights reserved.</p>
+  <script>document.getElementById("copyright-year").textContent = new Date().getFullYear();</script>
 </footer>
 
   <!-- chatbot.njk -->
